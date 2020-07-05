@@ -1,0 +1,60 @@
+{
+    "name": "@salesforce/sfdx-lwc-jest",
+    "version": "0.7.1",
+    "description": "Run Jest against LWC components in a Salesforce DX workspace environment",
+    "main": "src/index.js",
+    "license": "MIT",
+    "files": [
+        "bin/",
+        "src/",
+        "config.js"
+    ],
+    "repository": "git@github.com:salesforce/sfdx-lwc-jest.git",
+    "bin": {
+        "lwc-jest": "./bin/sfdx-lwc-jest",
+        "sfdx-lwc-jest": "./bin/sfdx-lwc-jest"
+    },
+    "scripts": {
+        "check-license-headers": "node ./scripts/checkLicenseHeaders.js",
+        "lint": "eslint src/",
+        "format": "prettier --write '**/*.{js,json,md,html,css}'",
+        "release": "npm publish --access public",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@lwc/compiler": "1.1.13-224.4",
+        "@lwc/engine": "1.1.13-224.4",
+        "@lwc/jest-preset": "4.1.0-224.3",
+        "@lwc/jest-resolver": "4.1.0-224.3",
+        "@lwc/jest-serializer": "4.1.0-224.3",
+        "@lwc/jest-transformer": "4.1.0-224.3",
+        "@lwc/module-resolver": "1.1.13-224.4",
+        "@lwc/synthetic-shadow": "1.1.13-224.4",
+        "@lwc/wire-service": "1.1.13-224.4",
+        "@salesforce/wire-service-jest-util": "~2.2.5",
+        "chalk": "~4.0.0",
+        "glob": "~7.1.6",
+        "jest": "24.9.0",
+        "yargs": "~15.3.1"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.2.0",
+        "husky": "^4.2.5",
+        "isbinaryfile": "^4.0.6",
+        "lint-staged": "^10.2.10",
+        "prettier": "^2.0.5"
+    },
+    "resolutions": {
+        "js-yaml": "^3.13.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint",
+        "*.{js,json,md,html,css}": "prettier --write"
+    }
+}
